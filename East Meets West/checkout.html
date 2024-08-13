@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1">
+    <link rel="stylesheet" href="CSS files/checkoutSTYLE.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <!--  For top bar only  -->
+    <nav class="top_bar">
+        <span class="name"><a href="home.html"><img src="pics/logo2.png" class="logo"> Restaurant 362</a></span>
+        <div class="navTop">
+            <span class="menu"><a href="menu.html">Menu</a></span>
+            <span class="locations"><a href="#">Location</a></span>
+            <span class="sign_in"><a href="sign_in.html">Sign In</a></span>
+        </div>
+        <span><a href="guestcheckout.html"><img src="pics/cart.jpg" alt="cart" class="cart"></a></span>
+    </nav>
+
+    
+    <!--   front page  -->
+    <main>
+        <div class="container">
+            
+            <div class="cart_info">
+                <h1>YOUR CART</h1>
+
+                <div class="cart_item"> 
+                    <div class="content_container">
+                        <div class="item">
+                            <h3 id="foodItemCart1">Item Name</h3>
+                            <p id="foodPriceCart1" class="item_price">$price</p>
+                        </div>
+                        <p id="foodDescCart1" class="desc">
+                            food description 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cart_item">
+                    <div class="content_container">
+                        <div class="item">
+                            <h3 id="foodItemCart2">Item Name</h3>
+                            <p id="foodPriceCart2" class="item_price">$price</p>
+                        </div>
+                        <p id="foodDescCart2" class="desc">
+                            food description
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cart_item">
+                    <div class="content_container">
+                        <div  class="item">
+                            <h3 id="foodItemCart3">Item Name</h3>
+                            <p id="foodPriceCart3" class="item_price">$price</p>
+                        </div>
+                        <p id="foodDescCart3" class="desc">
+                            food description
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Add more w/ JavaScript? -->
+            
+            <div class="order_details">
+                <div class="order_top">
+                    <h2>ORDER DETAILS</h2>
+                    <div class="order_info">
+                        <p>Pickup at:</p>
+                        <p><a target="_blank" href="https://www.google.com/maps/dir//csuf/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x80dcd5ce8cc61391:0x2b9810bbb94af355?sa=X&ved=1t:3061&ictx=111">800 N State College Blvd, Fullerton</a></p>
+                    </div>
+                    <div class="order_info">
+                        <p>Date:</p>
+                        <p id="order-date">(Date)</p>
+                    </div>
+                    <div class="order_info">
+                        <p>Estimated Pickup Time:</p>
+                        <p id="order-time">(Time)</p>
+                    </div>
+                </div>
+                <div class="order_bottom">
+                    <h3>Cart Total</h3>
+                    <div class="order_info">
+                        <p>Subtotal:</p>
+                        <p id="subTotalCart">$</p>
+                    </div>
+                    <div class="order_info">
+                        <p>Tax 7.25%: </p>
+                        <p id="taxCart">$</p>
+                    </div>
+                    <div class="order_info">
+                        <p>Total:</p>
+                        <p id="totalCart">$</p>
+                    </div>
+                    <span><a class="checkout" >CHECK OUT</a></span>
+                </div>
+            </div>
+             
+        </div>
+
+        <!--  Confirmation Pop up -->
+        <div class="confirmation">  
+            <div class="confirmationPop">
+                <button class="closePop" onclick="closePopup()">✕</button>
+                <h2>ORDER CONFIRMED!</h2>
+                <div class="redBorder">
+                    <h3>Pick Up At: <a target="_blank" href="https://www.google.com/maps/dir//csuf/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x80dcd5ce8cc61391:0x2b9810bbb94af355?sa=X&ved=1t:3061&ictx=111"><span>800 N State College Blvd, Fullerton, CA 9283</span></a></h3>
+                    <h3>Date: <span id="pop-date">dateVariable</span></h3>
+                    <h3>Ready By: <span id="pop-time">timeVariable</span></h3>
+                </div>
+            </div>
+        </div>
+
+    </main>
+  
+    <!--  footer, bottom of the page  -->
+    
+    <footer class="footer">
+        <div class="bottomLeft">
+            <a href="#"><h5>Contact Us</h5></a>
+            <br></br>
+            <h6> CPSC 362 - SUMMER 2024</h6>
+            <span>MATTHEW AMORA</span> 
+            <span>EDGAR CARDENAS</span> 
+            <span>LAWRENCE CUI</span> 
+            <span>MANVIR DHILLON</span>
+            <span>WINDLY NGUYEN</span>
+        </div>
+        <div class="bottomRight">
+            
+            <a href="sign_up.html"><img src="pics/bottomLeft.jpg" class="family"></a>
+            <a href="home.html"><img src="pics/logo2.png" class="logo2"></a>
+        </div>
+    </footer>
+
+    <script>
+
+        // CODE FOR GETTING DATE AND TIME
+            const today = new Date();
+            const fullDate = `${String(today.getMonth() + 1).padStart(2, '0')}/${String(today.getDate()).padStart(2, '0')}/${today.getFullYear()}`;
+            // Extract hours, minutes, and seconds
+            today.setMinutes(today.getMinutes() + 30); // add 30 minutes to the current time for pickup time
+            let hours = today.getHours();
+            const minutes = String(today.getMinutes()).padStart(2, '0');
+            const amPm = hours >= 12 ? 'PM' : 'AM'; // Determine AM or PM suffix
+            // Convert 24-hour format to 12-hour format
+            hours = hours % 12;
+            hours = hours ? hours : 12; // If hours is 0, set it to 12
+            const time = `${hours}:${minutes} ${amPm}`; // time variable
+            // Update the <p> elements with the date and time
+            document.getElementById('order-date').textContent = fullDate;
+            document.getElementById('pop-date').textContent = fullDate;
+            document.getElementById('order-time').textContent = time;
+            document.getElementById('pop-time').textContent = time;
+
+        // CODE FOR CALCULATING PRICES
+            // // SUBTOTAL
+            //     let subtotal = 0;
+            //     document.querySelectorAll('.item_price').forEach(item => {
+            //         subtotal += parseFloat(item.textContent.replace('$', ''));
+            //     });
+            //     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            // // TAX
+            //     const taxRate = 0.0725;
+            //     const tax = subtotal * taxRate;
+            //     document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            // // TOTAL
+            //     const total = subtotal + tax;
+            //     document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+
+        // CODE FOR SHOWING POPUP (CONFIRMING THE ORDER)
+            document.querySelector('.checkout').addEventListener('click', (event) => { // OPEN THE POPUP
+                document.querySelector('.confirmation').style.display = 'flex';
+            }); 
+
+        // CODE FOR CLOSING ORDER POPUP
+            const popup = document.querySelector('.confirmation'); // popup screen
+            function closePopup() { // function to close popup screen
+                popup.style.display = 'none'; // Hide the popup container
+            } 
+            popup.addEventListener('click', (event) => { // close the popup when clicking on the background
+                if (event.target === popup) { // when the background is clicked
+                    closePopup(); // Hide the popup screen
+                }
+            }); 
+
+    </script>
+
+</body>
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script type="module" src="javascript/firebaseInit.js"></script>
+<script type="module" src="javascript/cartDetails.js"></script>
+<script type="module" src="javascript/checkoutAuth.js"></script>
+
+</html>
