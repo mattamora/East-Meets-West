@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign_In</title>
+    <meta name="viewport" content="width=device-width, inital-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS files/sign_inSTYLE.css">
+</head>
+
+<body>
+    <header class="top_bar">
+        <span><a href="home.html"><img src="pics/logo2.png" class="logo"></a></span>
+        <span class="name"><a href="home.html">Restaurant 362</a></span>
+        <div class="navTop">
+            <span class="menu"><a href="menu.html">Menu</a></span>
+            <span class="locations"><a href="location.html">Location</a></span>
+            <span class="sign_in"><a href="sign_in.html">My 362 Account</a></span>
+        </div>
+        <span><a class="order" href="menu.html">Order Now</a></span>
+    </header>
+
+
+    <main>
+        <h1><a class="h1" href="account.html">MY 362 ACCOUNT</a></h1>
+        <h2>SIGN IN</h2>
+        <input id="username" type="text" placeholder="Email" class="email">
+        <input id="password" type="password" placeholder="Password">
+        <img src="pics/eye.jpg" class ="eye" id="showEye">
+        <img src="pics/closeEye.jpg" class ="closeEye" id="hideEye">
+        <button id="signInBtn">SIGN IN</button>
+        <span id="sign_up">Don't have an account? <a href="sign_up.html" class="signUpp">Sign Up</a></span>
+    </main>
+
+
+    <footer class="footer">
+        <div class="bottomLeft">
+            <a href="location.html"><h5>Contact Us</h5></a>
+            <br></br>
+            <h6> CPSC 362 - SUMMER 2024</h6>
+            <span>MATTHEW AMORA</span> 
+            <span>EDGAR CARDENAS</span> 
+            <span>LAWRENCE CUI</span> 
+            <span>MANVIR DHILLON</span>
+            <span>WINDLY NGUYEN</span>
+        </div>
+        <div class="bottomRight">
+            
+            <a href="sign_up.html"><img src="pics/bottomLeft.jpg" class="family"></a>
+            <a href="home.html"><img src="pics/logo2.png" class="logo2"></a>
+        </div>
+    </footer>
+
+
+
+    <!---  ==========      JAVASCIPT CODE      ========= -->
+    <script>
+        const showEye = document.getElementById('showEye');
+        const hideEye = document.getElementById('hideEye');
+        const password = document.getElementById('password');
+    
+        showEye.addEventListener('click', function () 
+        {
+            password.setAttribute('type', 'text');
+            showEye.style.display = 'none';
+            hideEye.style.display = 'block';
+        }  );
+    
+        hideEye.addEventListener('click', function () 
+        {
+            password.setAttribute('type', 'password');
+            showEye.style.display = 'block';
+            hideEye.style.display = 'none';
+        }  );
+    </script>    
+
+
+</body>
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script type="module" src="javascript/firebaseInit.js"></script>
+<script type="module" src="javascript/signin.js"></script>
+<script type="module" src="javascript/signInAuth.js"></script>
+
+</html>
